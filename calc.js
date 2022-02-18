@@ -16,7 +16,7 @@
       out.textContent = 0;
   }
 
-  document.querySelector('.ac')onclick = clearAll;
+  document.querySelector('.ac').onclick = clearAll;
 
   document.querySelector('.buttons').onclick = (event) => {
       if(!event.target.classList.contains('btn')) return;
@@ -25,9 +25,50 @@
        
       out.textContent = '';
 
-      if (digit.includes(key))
-      
-  }    
+      const key = event.target.textContent;
 
+      if (digit.includes(key)){
+          if (b ==='' && sign === ''){
+          a += key;
+          console.log(a, b , sign);
+          out.textContent = a;
+          }
+          else if (a!=='' && b!=='' && finish){
 
+          }
+          else {
+               b += key;
+               out.textContent = b;
+          }
+          console.log(a,b,sign);
+          return
+      }
+  if (action.includes(key)){
+      sign = key;
+      out.textContent = sign;
+      console.log(a, b, sign);
+      return;
   }
+  
+  // Нажата равно
+
+  if (key === '=') {
+      switch (sign) {
+          case "+";
+              a = (+a) + (+b);
+              break;
+          case "-";
+              a = a - b;
+              break;  
+          case "x";  
+              a = a * b;
+              break;
+          case "/";
+             a = a / b;
+             break;     
+      }
+      finish = true;
+      out.textContent = a;
+      console.table(a, b , sign);
+  }
+}
