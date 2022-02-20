@@ -69,6 +69,13 @@
               a = a * b;
               break;
           case "/":
+              if (b === '0'){
+                  out.textContent = 'Ошибка'
+                  a = '';
+                  b = '';
+                  sign = '';
+                  return;
+              }
              a = a / b;
              break;     
       }
