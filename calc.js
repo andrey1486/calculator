@@ -19,20 +19,23 @@
   document.querySelector('.ac').onclick = clearAll;
 
   document.querySelector('.buttons').onclick = (event) => {
+      //нажата не кнопка
       if(!event.target.classList.contains('btn')) return;
-
+    //нажата кнопка ac
       if(event.target.classList.contains('ac')) return;
        
       out.textContent = '';
 
       const key = event.target.textContent;
-
+      //если нажата клавиша 0-9 или 
       if (digit.includes(key)){
           if (b ==='' && sign === ''){
           a += key;
           console.log(a, b , sign);
           out.textContent = a;
           }
+    
+          
           else if (a!=='' && b!=='' && finish){
 
           }
@@ -43,6 +46,7 @@
           console.log(a,b,sign);
           return
       }
+      //если нажата клавиша + - / *
   if (action.includes(key)){
       sign = key;
       out.textContent = sign;
@@ -53,17 +57,18 @@
   // Нажата равно
 
   if (key === '=') {
+      if (b ==='') b = a;
       switch (sign) {
-          case "+";
+          case "+":
               a = (+a) + (+b);
               break;
-          case "-";
+          case "-":
               a = a - b;
               break;  
-          case "x";  
+          case "x":  
               a = a * b;
               break;
-          case "/";
+          case "/":
              a = a / b;
              break;     
       }

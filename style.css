@@ -56,7 +56,7 @@
 }
 
 .btn:active {
-    filter: : brightness(90%);
+    filter: brightness(90%);
 }
 
 .btn.bg-grey {
